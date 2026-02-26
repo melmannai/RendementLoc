@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="description" content="Calculateur de rendement locatif">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <title>RendementLoc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>RendementLoc</h1>
+            <p class="subtitle">Simulateur de rendement locatif</p>
+        </header>
+
+        <main>
+            <!-- Tableau principal -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Donnees</th>
+                            <th>Calcul</th>
+                            <th>L.annuel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Achat -->
+                        <tr>
+                            <td class="label-cell">Achat</td>
+                            <td class="input-cell">
+                                <div class="input-wrap">
+                                    <input type="number" id="d-achat" inputmode="decimal" placeholder="300000" min="0" step="1000">
+                                    <span class="unit">&euro;</span>
+                                </div>
+                            </td>
+                            <td class="calc-cell">
+                                <span id="c-achat">--</span>
+                            </td>
+                            <td class="annual-cell"></td>
+                        </tr>
+                        <!-- Loyer -->
+                        <tr>
+                            <td class="label-cell">
+                                Loyer
+                                <div class="toggle-period" data-target="loyer">
+                                    <button class="period-btn active" data-period="mensuel">M</button>
+                                    <button class="period-btn" data-period="annuel">A</button>
+                                </div>
+                            </td>
+                            <td class="input-cell">
+                                <div class="input-wrap">
+                                    <input type="number" id="d-loyer" inputmode="decimal" placeholder="1500" min="0" step="10">
+                                    <span class="unit">&euro;</span>
+                                </div>
+                                <span class="equiv" id="eq-loyer"></span>
+                            </td>
+                            <td class="calc-cell">
+                                <span id="c-loyer">--</span>
+                                <span class="calc-equiv" id="ceq-loyer"></span>
+                            </td>
+                            <td class="annual-cell">
+                                <span id="a-loyer">--</span>
+                            </td>
+                        </tr>
+                        <!-- Charges -->
+                        <tr>
+                            <td class="label-cell">
+                                Charges
+                                <div class="toggle-period" data-target="charges">
+                                    <button class="period-btn active" data-period="mensuel">M</button>
+                                    <button class="period-btn" data-period="annuel">A</button>
+                                </div>
+                            </td>
+                            <td class="input-cell">
+                                <div class="input-wrap">
+                                    <input type="number" id="d-charges" inputmode="decimal" placeholder="0" min="0" step="10">
+                                    <span class="unit">&euro;</span>
+                                </div>
+                                <span class="equiv" id="eq-charges"></span>
+                            </td>
+                            <td class="calc-cell">
+                                <span id="c-charges">--</span>
+                                <span class="calc-equiv" id="ceq-charges"></span>
+                            </td>
+                            <td class="annual-cell">
+                                <span id="a-charges">--</span>
+                            </td>
+                        </tr>
+                        <!-- Rendement -->
+                        <tr>
+                            <td class="label-cell">Rendement</td>
+                            <td class="input-cell">
+                                <div class="input-wrap">
+                                    <input type="number" id="d-rendement" inputmode="decimal" placeholder="6" min="0" max="100" step="0.1">
+                                    <span class="unit">%</span>
+                                </div>
+                            </td>
+                            <td class="calc-cell">
+                                <span id="c-rendement">--</span>
+                            </td>
+                            <td class="annual-cell"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="btn-reset" id="btn-reset">Reinitialiser</button>
+        </main>
+
+        <footer>
+            <p>RendementLoc</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
